@@ -1,0 +1,23 @@
+{
+  "name": "mercado-libre-backend",
+  "version": "1.0.0",
+  "description": "Test mercado libre backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/missael306/mercado-libre-backend.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Missael Armenta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/missael306/mercado-libre-backend/issues"
+  },
+  "homepage": "https://github.com/missael306/mercado-libre-backend#readme"
+}
