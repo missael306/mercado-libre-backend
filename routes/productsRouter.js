@@ -1,11 +1,13 @@
 const express = require('express');
 
-const router = express.Router();
+const ProductsService = require('./../services/productService');
 
-router.get('/', async (req, res) => {    
-    res.json({
-        message: 'Products API'
-    });
+const router = express.Router();
+const productService = new ProductsService();
+
+router.get('/', async (req, res) => {
+    const products = await productService.find();        
+    res.status(200).send(products);
 });
 
 module.exports = router;
