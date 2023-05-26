@@ -1,9 +1,8 @@
-require('dotenv').config();
-
+const config = require('./../schemas/config');
 
 const author = {
-    name : process.env.AUTHOR_NAME,
-    lastname : process.env.AUTHOR_LASTNAME
+    name : config.AUTHOR_NAME,
+    lastname : config.AUTHOR_LASTNAME
 }
 
 class ApiResponse{

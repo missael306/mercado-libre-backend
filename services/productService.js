@@ -1,7 +1,7 @@
 const axios = require('axios');
 const ApiResponse = require('./../schemas/apiResponse');
+const config = require('./../schemas/config');
 
-require('dotenv').config();
 
 class ProductsService {
 
@@ -11,7 +11,7 @@ class ProductsService {
     }
 
     async init() {
-        let response = await axios.get(process.env.PRODUCTS_URL);
+        let response = await axios.get(config.PRODUCTS_URL);
         const apiResponse = new ApiResponse();        
         const categories = response.data.available_filters.find(filter => filter.id === 'category');
         const results = response.data.results;

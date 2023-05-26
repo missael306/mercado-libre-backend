@@ -2,14 +2,14 @@ const express = require('express');
 const routerApi = require('./routes/indexRouter');
 const { errorHandler , boomErrorHandler} = require('./middlewares/errorHandler');
 const cors = require('cors');
-require('dotenv').config();
+const config = require('./schemas/config');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = config.PORT || 3000;
 
 app.use(express.json());
 
-const whitelist = process.env.ALLOW_ORIGINS;
+const whitelist = config.ALLOW_ORIGINS;
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
