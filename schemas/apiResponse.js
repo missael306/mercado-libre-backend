@@ -11,7 +11,7 @@ class ApiResponse{
         this.author = author
     }
 
-    setProducts(categories = [], items = []){
+    setProducts(categories = [], items = []){        
         this.categories = categories,
         this.items = items
     }

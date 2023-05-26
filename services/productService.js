@@ -12,8 +12,10 @@ class ProductsService {
 
     async init() {
         let response = await axios.get(process.env.PRODUCTS_URL);
-        const apiResponse = new ApiResponse();
-        apiResponse.setProducts(response.data.categories, response.data.items);
+        const apiResponse = new ApiResponse();        
+        const categories = response.data.available_filters.find(filter => filter.id === 'category');
+        const results = response.data.results;
+        apiResponse.setProducts(categories.values, results);
         this.products = apiResponse;
     }
 
