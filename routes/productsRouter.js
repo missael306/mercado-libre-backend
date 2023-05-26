@@ -22,8 +22,10 @@ router.get('/items/:id',
     validatorHandler(detailProductSchema, 'params'),
     async (req, res,next) => {
     try {        
-        res.status(200).send("Detail product");        
-    } catch (error) {                 
+        const detailProduct = await productService.detail(req.params.id);    
+        res.status(200).send(detailProduct);        
+    } catch (error) {         
+        console.log(error);
         next(boom.badImplementation(error));
     }
 });

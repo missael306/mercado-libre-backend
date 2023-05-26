@@ -5,6 +5,7 @@ const config = {
     AUTHOR_LASTNAME: (process.env.AUTHOR_LASTNAME) ? process.env.AUTHOR_LASTNAME : "Armenta",
     PRODUCTS_URL: (process.env.PRODUCTS_URL) ? process.env.PRODUCTS_URL : "https://api.mercadolibre.com/sites/MLA/search?q=:query",
     ALLOW_ORIGINS: (process.env.ALLOW_ORIGINS) ? process.env.ALLOW_ORIGINS : "['http://localhost:3001']",
+    PRODUCT_DETAIL: (process.env.PRODUCT_DETAIL) ? process.env.PRODUCT_DETAIL : "https://api.mercadolibre.com/items/"
 }
 
 module.exports = config;
