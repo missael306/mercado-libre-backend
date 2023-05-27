@@ -18,7 +18,7 @@ router.get('/', async (req, res,next) => {
     }
 });
 
-router.get('/items/:id', 
+router.get('/:id', 
     validatorHandler(detailProductSchema, 'params'),
     async (req, res,next) => {
     try {        
