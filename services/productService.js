@@ -4,9 +4,12 @@ const config = require('./../schemas/config');
 class ProductsService {
 
     async find(searchQuery) {
-        let response = await axios.get(`${config.PRODUCTS_URL}${searchQuery}`);
-        const category = await this.getCategory(response.data.results.map((item) => item.category_id));
-        const results = response.data.results;
+        const response = await axios.get(`${config.PRODUCTS_URL}${searchQuery}`);
+        const productsLength = response.data.results.length;
+        const endProducts = (productsLength >= 4) ? 4 : productsLength;        
+        const products = productsLength != 0 ? response.data.results.slice(0,endProducts) : [];
+        const category = await this.getCategory(products.map((item) => item.category_id));
+        const results = products;
         const apiResponse = new ApiResponse();
         apiResponse.setProducts(category, results);
         return apiResponse;
