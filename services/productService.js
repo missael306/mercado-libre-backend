@@ -1,24 +1,16 @@
 const axios = require('axios');
 const ApiResponse = require('./../schemas/apiResponse');
 const config = require('./../schemas/config');
-class ProductsService {
+class ProductsService { 
 
-    constructor() {
-        this.products = {};
-        this.init();
-    }
-
-    async init() {
-        let response = await axios.get(config.PRODUCTS_URL);
-        const categories = response.data.available_filters.find(filter => filter.id === 'category');
+    async find(searchQuery) {        
+        let response = await axios.get(`${config.PRODUCTS_URL}${searchQuery}`);
+        const categories = response.data.available_filters.find(filter => filter.id === 'category');        
+        const availableCategories = (!categories) ? [] : categories.values;
         const results = response.data.results;
-        const apiResponse = new ApiResponse();
-        apiResponse.setProducts(categories.values, results);
-        this.products = apiResponse;
-    }
-
-    find() {
-        return this.products;
+        const apiResponse = new ApiResponse();        
+        apiResponse.setProducts(availableCategories, results);
+        return apiResponse;
     }
 
     async detail(id) {
