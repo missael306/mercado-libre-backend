@@ -12,12 +12,13 @@ class ApiResponse{
 
     setProducts(categories = [], items = []){        
         this.categories = categories;
-        this.items = items;
+        this.items = items;        
     }
 
-    setDetailProduct(item = {}, description = ""){
+    setDetailProduct(item = {}, description = "", categories = []){
         this.item = item;
-        this.item.description = description;
+        this.item.description = description;        
+        this.categories = categories;
     }
 }
 

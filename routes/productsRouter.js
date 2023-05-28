@@ -15,8 +15,7 @@ router.get('/', async (req, res, next) => {
         const searchQuery = (query) ? query : '';
         const products = await productService.find(searchQuery);
         res.status(200).send(products);
-    } catch (error) {
-        console.log(error)
+    } catch (error) {        
         next(boom.badImplementation(error));
     }
 });
