@@ -26,8 +26,7 @@ router.get('/:id',
         try {
             const detailProduct = await productService.detail(req.params.id);
             res.status(200).send(detailProduct);
-        } catch (error) {
-            console.log(error);
+        } catch (error) {            
             next(boom.badImplementation(error));
         }
     });
