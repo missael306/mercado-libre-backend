@@ -2,10 +2,10 @@
   "name": "mercado-libre-backend",
   "version": "1.0.0",
   "description": "Test mercado libre backend",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js",
     "lint": "eslint"
   },
   "repository": {

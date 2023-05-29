@@ -5,7 +5,7 @@ const cors = require('cors');
 const config = require('./schemas/config');
 
 const app = express();
-const port = config.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -26,7 +26,7 @@ app.use(boomErrorHandler);
 app.use(errorHandler);
 
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send('Backend is running');
 });
 
