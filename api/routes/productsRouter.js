@@ -9,16 +9,18 @@ const ProductsService = require('../services/productService');
 const router = express.Router();
 const productService = new ProductsService();
 
-router.get('/', async (req, res, next) => {
-    try {
-        let query = req.query.q;
-        const searchQuery = (query) ? query : '';
-        const products = await productService.find(searchQuery);
-        res.status(200).send(products);
-    } catch (error) {        
-        next(boom.badImplementation(error));
-    }
-});
+router.get('/',
+    validatorHandler(searchProductSchema, 'query'),
+    async (req, res, next) => {
+        try {
+            let query = req.query.q;
+            const searchQuery = (query) ? query : '';
+            const products = await productService.find(searchQuery);
+            res.status(200).send(products);
+        } catch (error) {
+            next(boom.badImplementation(error));
+        }
+    });
 
 router.get('/:id',
     validatorHandler(detailProductSchema, 'params'),
@@ -26,7 +28,7 @@ router.get('/:id',
         try {
             const detailProduct = await productService.detail(req.params.id);
             res.status(200).send(detailProduct);
-        } catch (error) {            
+        } catch (error) {
             next(boom.badImplementation(error));
         }
     });

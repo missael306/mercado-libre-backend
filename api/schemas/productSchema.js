@@ -1,10 +1,10 @@
 const Joi = require('joi');
 
-const query = Joi.string();
+const q = Joi.string();
 const id = Joi.string().alphanum();
 
 const searchProductSchema = Joi.object({    
-    query: query.required()    
+    q: q.required()    
 });
 
 const detailProductSchema = Joi.object({    
