@@ -20,6 +20,22 @@ class ApiResponse{
         this.item.description = description;        
         this.categories = categories;
     }
+
+    setCountries(items = []){                
+        this.items = items;        
+    }
+
+    setStates(items = []){                
+        this.items = items;        
+    }
+
+    setCities(items = []){                
+        this.items = items;        
+    }
+
+    setRegisterSave(message){
+        this.message = message;
+    }
 }
 
 module.exports = ApiResponse;
